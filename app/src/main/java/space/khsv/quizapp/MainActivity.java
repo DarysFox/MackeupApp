@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -32,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
             public void goToGameLevels(View view) {
-                    Intent intent = new Intent(this, GameLevels.class);
+                    Intent intent = new Intent(MainActivity.this, GameLevels.class);
                     startActivity(intent);
-                    finish();
+//                    finish();
         };
     }
 

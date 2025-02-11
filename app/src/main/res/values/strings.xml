@@ -2,5 +2,7 @@
     <string name="app_name">QuizApp</string>
     <string name="start">Start</string>
     <string name="back">Back</string>
-    <string name="level">Level</string>
+    <string name="level">Level:</string>
+    <string name="level1">Help Carly get ready for her date! Apply makeup correctly step by step. The main thing is to do everything right.Good luck!</string>
+    <string name="textcontinue">Continue</string>
 </resources>
