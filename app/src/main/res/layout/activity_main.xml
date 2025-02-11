@@ -44,9 +44,9 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="@string/start"
-            android:textColor="@color/sweetPink"
-            android:textSize="30sp"
+            android:onClick="openGameLevels"
 
-            />
+            android:textColor="@color/sweetPink"
+            android:textSize="30sp" />
     </LinearLayout>
 </RelativeLayout>
