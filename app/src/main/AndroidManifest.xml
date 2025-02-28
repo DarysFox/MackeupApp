@@ -12,9 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuizApp"
         tools:targetApi="31">
-        <activity
-            android:name=".Level1"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -25,12 +23,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".GameLevels"
-            android:exported="true">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".GameLevels"/>
+        <category android:name="android.intent.category.LAUNCHER" />
+        <activity
+            android:name=".Level1"/>
+
     </application>
 
 </manifest>

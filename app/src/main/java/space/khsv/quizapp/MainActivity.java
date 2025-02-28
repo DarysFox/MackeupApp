@@ -25,18 +25,18 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        Window w = getWindow();
-        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-    }
-            public void goToGameLevels(View view) {
+        Button button_start = findViewById(R.id.button_start);
+        button_start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Vytvoříme Intent pro přechod na SecondActivity
+                try{
                     Intent intent = new Intent(MainActivity.this, GameLevels.class);
                     startActivity(intent);
-//                    finish();
-        };
+
+                }catch(Exception e){}
+            }
+        });
+    }
     }
 
