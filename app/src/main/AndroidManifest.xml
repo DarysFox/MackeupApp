@@ -23,10 +23,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".GameLevels"/>
-        <category android:name="android.intent.category.LAUNCHER" />
+            android:name=".GameLevels"
+            android:exported="true"/>
+
         <activity
-            android:name=".Level1"/>
+            android:name=".Level1"
+            android:exported="true"/>
+
+        <activity
+            android:name=".Preview"
+            tools:ignore="true" />
 
     </application>
 

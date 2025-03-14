@@ -28,12 +28,13 @@
 
     <LinearLayout
         android:id="@+id/start_layout"
-        android:layout_width="174dp"
-        android:layout_height="246dp"
+        android:layout_width="172dp"
+        android:layout_height="215dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:orientation="horizontal"
         android:padding="10dp">
+
 
         <Button
             android:id="@+id/button_start"

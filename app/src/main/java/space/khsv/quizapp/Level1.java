@@ -19,45 +19,26 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class Level1 extends AppCompatActivity {
 
-    Dialog dialog;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+        //EdgeToEdge.enable(this);
         setContentView(R.layout.univerasal);
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
-        dialog = new Dialog(this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.prewiew_dialog);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.setCancelable(false);
-
-        TextView btnclose = (TextView)dialog.findViewById(R.id.btnclose);
-        btnclose.setOnClickListener(new View.OnClickListener() {
+        Button button_back = findViewById(R.id.button_back);
+        button_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
-                    Intent intent = new Intent(Level1.this, GameLevels.class);
-                    startActivity(intent);
-                    finish();
-                }catch(Exception e){}
-                dialog.dismiss();
+                Intent intent = new Intent(Level1.this, GameLevels.class);
+                startActivity(intent);
             }
         });
 
-        Button btncontinue = (Button)dialog.findViewById(R.id.btncontinue);
-        btncontinue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-
-        dialog.show();
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
