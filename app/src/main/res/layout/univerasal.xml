@@ -212,14 +212,14 @@
                     android:layout_height="220dp"
                     android:layout_weight="1"
                     android:layout_marginRight="5dp"
-                    app:srcCompat="@drawable/m0" />
+                    app:srcCompat="@drawable/make3" />
                 <ImageView
                     android:id="@+id/makeup2"
                     android:layout_width="wrap_content"
                     android:layout_height="220dp"
                     android:layout_weight="1"
                     android:layout_marginRight="5dp"
-                    app:srcCompat="@drawable/m6" />
+                    app:srcCompat="@drawable/make13" />
             </LinearLayout>
 
         </LinearLayout>

@@ -17,7 +17,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Random;
+
 public class Level1 extends AppCompatActivity {
+
+    public int numLeft;
+    public int numRight;
+    Array array = new Array();
+    Random random = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +45,8 @@ public class Level1 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        numLeft = random.nextInt(13);
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
