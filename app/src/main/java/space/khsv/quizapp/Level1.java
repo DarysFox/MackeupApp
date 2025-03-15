@@ -25,6 +25,8 @@ import java.util.Random;
 
 public class Level1 extends AppCompatActivity {
 
+    Dialog dialog;
+
     public int numLeft;
     public int numRight;
     Array array = new Array();
@@ -47,6 +49,30 @@ public class Level1 extends AppCompatActivity {
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+
+        dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.prewiew_dialog);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.setCancelable(false);
+        dialog.show();
+
+        Button btncon = dialog.findViewById(R.id.btncontinue);
+        btncon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        TextView btnclos = dialog.findViewById(R.id.btnclose);
+        btnclos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Level1.this, GameLevels.class);
+                startActivity(intent);
+            }
+        });
 
         Button button_back = findViewById(R.id.button_back);
         button_back.setOnClickListener(new View.OnClickListener() {
@@ -121,7 +147,7 @@ public class Level1 extends AppCompatActivity {
                             if (count == 1) {
                                 count = 0;
                             } else {
-                                count = count - 2;
+                                count = count - 0;
                             }
                         }
                         for (int i = 0; i < 15; i++) {
@@ -195,7 +221,7 @@ public class Level1 extends AppCompatActivity {
                             if (count == 1) {
                                 count = 0;
                             } else {
-                                count = count - 2;
+                                count = count - 0;
                             }
                         }
                         for (int i = 0; i < 15; i++) {
