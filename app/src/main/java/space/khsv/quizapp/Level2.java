@@ -23,6 +23,7 @@ public class Level2 extends AppCompatActivity {
 
     Dialog dialog;
 
+    Dialog dialogEnd;
     public int numLeft;
     public int numRight;
     Array array = new Array();
@@ -48,7 +49,7 @@ public class Level2 extends AppCompatActivity {
 
         dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.prewiew_dialog);
+        dialog.setContentView(R.layout.prewiew_dialog2);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setCancelable(false);
         dialog.show();
@@ -79,6 +80,32 @@ public class Level2 extends AppCompatActivity {
             }
         });
 
+        dialogEnd = new Dialog(this);
+        dialogEnd.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogEnd.setContentView(R.layout.dialog_end2);
+        dialogEnd.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialogEnd.setCancelable(false);
+
+        Button btnconEnd = dialogEnd.findViewById(R.id.btncontinue);
+        btnconEnd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Level2.this, GameLevels.class);
+                startActivity(intent);
+                dialogEnd.dismiss();
+            }
+        });
+
+        TextView btnclosEnd = dialogEnd.findViewById(R.id.btnclose);
+        btnclosEnd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Level2.this, GameLevels.class);
+                startActivity(intent);
+                dialogEnd.dismiss();
+            }
+        });
+
         final int[] images2 = {
                 R.drawable.c1, R.drawable.c2, R.drawable.c3, R.drawable.c4, R.drawable.c5, R.drawable.c6, R.drawable.c7, R.drawable.c8,
                 R.drawable.c9, R.drawable.c10, R.drawable.c11
@@ -92,18 +119,18 @@ public class Level2 extends AppCompatActivity {
 
         final Animation a = AnimationUtils.loadAnimation(Level2.this, R.anim.alpha);
 
-        numLeft = random.nextInt(13);
-        img_left.setImageResource(array.images1[numLeft]);
+        numLeft = random.nextInt(8);
+        img_left.setImageResource(array.images3[numLeft]);
 
 
-        numRight = random.nextInt(13);
+        numRight = random.nextInt(8);
 //        img_right.setImageResource(array.images1[numRight]);
 
         while (numLeft == numRight) {
-            numRight = random.nextInt(13);
+            numRight = random.nextInt(8);
         }
 
-        img_right.setImageResource(array.images1[numRight]);
+        img_right.setImageResource(array.images3[numRight]);
 
         img_left.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -156,18 +183,18 @@ public class Level2 extends AppCompatActivity {
                         }
                     }
                     if (count == 11) {
-
+                        dialogEnd.show();
                     } else {
-                        numLeft = random.nextInt(13);
-                        img_left.setImageResource(array.images1[numLeft]);
+                        numLeft = random.nextInt(8);
+                        img_left.setImageResource(array.images3[numLeft]);
                         img_left.startAnimation(a);
-                        numRight = random.nextInt(13);
+                        numRight = random.nextInt(8);
 
                         while (numLeft == numRight) {
-                            numRight = random.nextInt(13);
+                            numRight = random.nextInt(8);
                         }
 
-                        img_right.setImageResource(array.images1[numRight]);
+                        img_right.setImageResource(array.images3[numRight]);
                         img_right.startAnimation(a);
                         img_right.setEnabled(true);
                     }
@@ -230,18 +257,18 @@ public class Level2 extends AppCompatActivity {
                         }
                     }
                     if (count == 11) {
-
+                        dialogEnd.show();
                     } else {
-                        numLeft = random.nextInt(13);
-                        img_left.setImageResource(array.images1[numLeft]);
+                        numLeft = random.nextInt(8);
+                        img_left.setImageResource(array.images3[numLeft]);
                         img_left.startAnimation(a);
-                        numRight = random.nextInt(13);
+                        numRight = random.nextInt(8);
 
                         while (numLeft == numRight) {
-                            numRight = random.nextInt(13);
+                            numRight = random.nextInt(8);
                         }
 
-                        img_right.setImageResource(array.images1[numRight]);
+                        img_right.setImageResource(array.images3[numRight]);
                         img_right.startAnimation(a);
                         img_left.setEnabled(true);
                     }
