@@ -37,7 +37,7 @@ public class Level2 extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         //EdgeToEdge.enable(this);
-        setContentView(R.layout.univerasal);
+        setContentView(R.layout.uni2);
 
         final ImageView img_left = (ImageView) findViewById(R.id.img_left);
         final ImageView img_right = (ImageView) findViewById(R.id.img_right);
