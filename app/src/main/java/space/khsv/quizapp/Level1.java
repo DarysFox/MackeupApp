@@ -34,6 +34,7 @@ public class Level1 extends AppCompatActivity {
     Random random = new Random();
 
     public int count = 0;
+
     private int imageIndex = 0;
 
     @Override
