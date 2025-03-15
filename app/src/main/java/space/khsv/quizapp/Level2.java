@@ -15,18 +15,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import java.util.Random;
 
-public class Level1 extends AppCompatActivity {
+public class Level2 extends AppCompatActivity {
 
     Dialog dialog;
-    Dialog dialogEnd;
 
     public int numLeft;
     public int numRight;
@@ -70,9 +65,8 @@ public class Level1 extends AppCompatActivity {
         btnclos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Level1.this, GameLevels.class);
+                Intent intent = new Intent(Level2.this, GameLevels.class);
                 startActivity(intent);
-                dialog.dismiss();
             }
         });
 
@@ -80,42 +74,10 @@ public class Level1 extends AppCompatActivity {
         button_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Level1.this, GameLevels.class);
+                Intent intent = new Intent(Level2.this, GameLevels.class);
                 startActivity(intent);
             }
         });
-
-
-
-        dialogEnd = new Dialog(this);
-        dialogEnd.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialogEnd.setContentView(R.layout.dialog_end);
-        dialogEnd.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialogEnd.setCancelable(false);
-
-        Button btnconEnd = dialogEnd.findViewById(R.id.btncontinue);
-        btnconEnd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Level1.this, Level2.class);
-                startActivity(intent);
-                dialogEnd.dismiss();
-            }
-        });
-
-        TextView btnclosEnd = dialogEnd.findViewById(R.id.btnclose);
-        btnclosEnd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Level1.this, GameLevels.class);
-                startActivity(intent);
-                dialogEnd.dismiss();
-            }
-        });
-
-
-
-
 
         final int[] images2 = {
                 R.drawable.m0, R.drawable.m1, R.drawable.m2, R.drawable.m3, R.drawable.m4, R.drawable.m5, R.drawable.m6, R.drawable.m7,
@@ -129,7 +91,7 @@ public class Level1 extends AppCompatActivity {
                 R.id.point15, R.id.point16
         };
 
-        final Animation a = AnimationUtils.loadAnimation(Level1.this, R.anim.alpha);
+        final Animation a = AnimationUtils.loadAnimation(Level2.this, R.anim.alpha);
 
         numLeft = random.nextInt(13);
         img_left.setImageResource(array.images1[numLeft]);
@@ -195,7 +157,7 @@ public class Level1 extends AppCompatActivity {
                         }
                     }
                     if (count == 16) {
-                        dialogEnd.show();
+
                     } else {
                         numLeft = random.nextInt(13);
                         img_left.setImageResource(array.images1[numLeft]);
@@ -269,7 +231,7 @@ public class Level1 extends AppCompatActivity {
                         }
                     }
                     if (count == 16) {
-                        dialogEnd.show();
+
                     } else {
                         numLeft = random.nextInt(13);
                         img_left.setImageResource(array.images1[numLeft]);

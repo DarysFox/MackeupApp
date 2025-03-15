@@ -31,7 +31,7 @@
             android:exported="true"/>
 
         <activity
-            android:name=".Preview"
+            android:name=".Level2"
             tools:ignore="true" />
 
     </application>
