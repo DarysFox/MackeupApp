@@ -207,19 +207,19 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/makeup1"
+                    android:id="@+id/img_left"
                     android:layout_width="wrap_content"
                     android:layout_height="220dp"
                     android:layout_weight="1"
                     android:layout_marginRight="5dp"
-                    app:srcCompat="@drawable/make3" />
+                    app:srcCompat="@drawable/bac" />
                 <ImageView
-                    android:id="@+id/makeup2"
+                    android:id="@+id/img_right"
                     android:layout_width="wrap_content"
                     android:layout_height="220dp"
                     android:layout_weight="1"
                     android:layout_marginRight="5dp"
-                    app:srcCompat="@drawable/make13" />
+                    app:srcCompat="@drawable/bac" />
             </LinearLayout>
 
         </LinearLayout>
