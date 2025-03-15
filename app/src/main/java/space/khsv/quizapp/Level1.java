@@ -31,6 +31,7 @@ public class Level1 extends AppCompatActivity {
     Random random = new Random();
 
     public int count = 0;
+    private int imageIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class Level1 extends AppCompatActivity {
 
         final ImageView img_left = (ImageView) findViewById(R.id.img_left);
         final ImageView img_right = (ImageView) findViewById(R.id.img_right);
+        final ImageView img_girl = (ImageView) findViewById(R.id.makeup0);
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
@@ -55,6 +57,12 @@ public class Level1 extends AppCompatActivity {
             }
         });
 
+        final int[] images2 = {
+                R.drawable.m0, R.drawable.m1, R.drawable.m2, R.drawable.m3, R.drawable.m4, R.drawable.m5, R.drawable.m6, R.drawable.m7,
+                R.drawable.m8, R.drawable.m9, R.drawable.m10, R.drawable.m11, R.drawable.m12, R.drawable.m13, R.drawable.m14
+
+        };
+
         final int[] progress = {
                 R.id.point1, R.id.point2, R.id.point3, R.id.point4, R.id.point5, R.id.point6, R.id.point7,
                 R.id.point8, R.id.point9, R.id.point10, R.id.point11, R.id.point12, R.id.point13, R.id.point14,
@@ -65,6 +73,7 @@ public class Level1 extends AppCompatActivity {
 
         numLeft = random.nextInt(13);
         img_left.setImageResource(array.images1[numLeft]);
+
 
         numRight = random.nextInt(13);
 //        img_right.setImageResource(array.images1[numRight]);
@@ -91,6 +100,10 @@ public class Level1 extends AppCompatActivity {
                     if (numLeft > numRight) {
                         if (count < 16) {
                             count = count + 1;
+                            if (imageIndex < images2.length - 1) {
+                                imageIndex++;
+                                img_girl.setImageResource(images2[imageIndex]);
+                            }
                         }
                         for (int i = 0; i < 16; i++) {
                             TextView tv = findViewById(progress[i]);
@@ -161,6 +174,10 @@ public class Level1 extends AppCompatActivity {
                     if (numLeft < numRight) {
                         if (count < 16) {
                             count = count + 1;
+                            if (imageIndex < images2.length - 1) {
+                                imageIndex++;
+                                img_girl.setImageResource(images2[imageIndex]);
+                            }
                         }
                         for (int i = 0; i < 16; i++) {
                             TextView tv = findViewById(progress[i]);

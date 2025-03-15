@@ -18,5 +18,4 @@ public class Array {
             R.drawable.make1
     };
 
-
 }
