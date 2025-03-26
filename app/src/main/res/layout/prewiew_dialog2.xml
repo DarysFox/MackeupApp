@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="250dp"
-    android:layout_height="300dp"
+    android:layout_width="300dp"
+    android:layout_height="600dp"
     android:id="@+id/dialogfon"
     android:background="@drawable/wall2"
     android:layout_gravity="center"
     android:layout_margin="10dp">
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="590dp"
         android:gravity="right"
         android:orientation="vertical"
         android:padding="15dp">
@@ -45,13 +44,19 @@
             android:textColor="@color/black95"
             android:textSize="12sp" />
 
+        <ImageView
+            android:id="@+id/previewimg2"
+            android:layout_width="match_parent"
+            android:layout_height="278dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/order" />
+
         <Button
             android:id="@+id/btncontinue"
-            android:layout_width="104dp"
-            android:layout_height="69dp"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_weight="10"
             android:backgroundTint="@color/white"
             android:padding="2dp"
             android:text="@string/textcontinue"

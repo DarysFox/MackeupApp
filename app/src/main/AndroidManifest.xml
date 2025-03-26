@@ -34,6 +34,10 @@
             android:name=".Level2"
             tools:ignore="true" />
 
+        <activity
+            android:name=".Level3"
+            tools:ignore="true" />
+
     </application>
 
 </manifest>

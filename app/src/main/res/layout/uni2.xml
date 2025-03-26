@@ -57,7 +57,7 @@
                     android:layout_weight="1"
                     android:gravity="right"
                     android:padding="10dp"
-                    android:text="@string/level"
+                    android:text="@string/level_2"
                     android:textColor="@color/darkPink"
                     android:textSize="16sp"
                     />
@@ -139,12 +139,6 @@
                     android:layout_weight="1"
                     android:background="@drawable/style_points" />
 
-                <TextView
-                    android:id="@+id/point11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/style_points" />
 
             </LinearLayout>
 

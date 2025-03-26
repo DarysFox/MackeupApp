@@ -27,7 +27,6 @@ public class Array {
             R.drawable.s4,
             R.drawable.s1,
             R.drawable.s5,
-            R.drawable.make2
     };
 
 }

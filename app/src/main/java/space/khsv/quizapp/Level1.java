@@ -118,14 +118,14 @@ public class Level1 extends AppCompatActivity {
         
         final int[] images2 = {
                 R.drawable.mm, R.drawable.m0, R.drawable.m1, R.drawable.m2, R.drawable.m3, R.drawable.m4, R.drawable.m5, R.drawable.m6, R.drawable.m7,
-                R.drawable.m8, R.drawable.m9, R.drawable.m10, R.drawable.m11, R.drawable.m12, R.drawable.m13, R.drawable.m14
+                R.drawable.m8, R.drawable.m9, R.drawable.m10, R.drawable.m11, R.drawable.m12, R.drawable.m13, R.drawable.m1
 
         };
 
         final int[] progress = {
                 R.id.point1, R.id.point2, R.id.point3, R.id.point4, R.id.point5, R.id.point6, R.id.point7,
                 R.id.point8, R.id.point9, R.id.point10, R.id.point11, R.id.point12, R.id.point13, R.id.point14,
-                R.id.point15, R.id.point16
+                R.id.point15
         };
 
         final Animation a = AnimationUtils.loadAnimation(Level1.this, R.anim.alpha);
@@ -157,14 +157,14 @@ public class Level1 extends AppCompatActivity {
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
 
                     if (numLeft > numRight) {
-                        if (count < 16) {
+                        if (count < 15) {
                             count = count + 1;
                             if (imageIndex < images2.length - 1) {
                                 imageIndex++;
                                 img_girl.setImageResource(images2[imageIndex]);
                             }
                         }
-                        for (int i = 0; i < 16; i++) {
+                        for (int i = 0; i < 15; i++) {
                             TextView tv = findViewById(progress[i]);
                             tv.setBackgroundResource(R.drawable.style_points);
                         }
@@ -183,7 +183,7 @@ public class Level1 extends AppCompatActivity {
                                 count = count - 0;
                             }
                         }
-                        for (int i = 0; i < 15; i++) {
+                        for (int i = 0; i < 14; i++) {
                             TextView tv = findViewById(progress[i]);
                             tv.setBackgroundResource(R.drawable.style_points);
                         }
@@ -193,7 +193,7 @@ public class Level1 extends AppCompatActivity {
                             tv.setBackgroundResource(R.drawable.style_points_correct);
                         }
                     }
-                    if (count == 16) {
+                    if (count == 15) {
                         dialogEnd.show();
                     } else {
                         numLeft = random.nextInt(13);
@@ -231,14 +231,14 @@ public class Level1 extends AppCompatActivity {
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
 
                     if (numLeft < numRight) {
-                        if (count < 16) {
+                        if (count < 15) {
                             count = count + 1;
                             if (imageIndex < images2.length - 1) {
                                 imageIndex++;
                                 img_girl.setImageResource(images2[imageIndex]);
                             }
                         }
-                        for (int i = 0; i < 16; i++) {
+                        for (int i = 0; i < 15; i++) {
                             TextView tv = findViewById(progress[i]);
                             tv.setBackgroundResource(R.drawable.style_points);
                         }
@@ -257,7 +257,7 @@ public class Level1 extends AppCompatActivity {
                                 count = count - 0;
                             }
                         }
-                        for (int i = 0; i < 15; i++) {
+                        for (int i = 0; i < 14; i++) {
                             TextView tv = findViewById(progress[i]);
                             tv.setBackgroundResource(R.drawable.style_points);
                         }
@@ -267,7 +267,7 @@ public class Level1 extends AppCompatActivity {
                             tv.setBackgroundResource(R.drawable.style_points_correct);
                         }
                     }
-                    if (count == 16) {
+                    if (count == 15) {
                         dialogEnd.show();
                     } else {
                         numLeft = random.nextInt(13);

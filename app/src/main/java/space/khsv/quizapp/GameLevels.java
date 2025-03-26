@@ -48,16 +48,23 @@ public class GameLevels extends AppCompatActivity {
             }
         });
 
-//        TextView button2 = findViewById(R.id.textView2);
-//        button1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(GameLevels.this, Level2.class);
-//                startActivity(intent);
-//            }
-//        });
+        TextView button2 = findViewById(R.id.textView2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GameLevels.this, Level2.class);
+                startActivity(intent);
+            }
+        });
 
-
+        TextView button3 = findViewById(R.id.textView3);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GameLevels.this, Level3.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

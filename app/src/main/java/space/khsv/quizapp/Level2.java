@@ -119,15 +119,15 @@ public class Level2 extends AppCompatActivity {
 
         final Animation a = AnimationUtils.loadAnimation(Level2.this, R.anim.alpha);
 
-        numLeft = random.nextInt(8);
+        numLeft = random.nextInt(7);
         img_left.setImageResource(array.images3[numLeft]);
 
 
-        numRight = random.nextInt(8);
+        numRight = random.nextInt(7);
 //        img_right.setImageResource(array.images1[numRight]);
 
         while (numLeft == numRight) {
-            numRight = random.nextInt(8);
+            numRight = random.nextInt(7);
         }
 
         img_right.setImageResource(array.images3[numRight]);
@@ -146,14 +146,14 @@ public class Level2 extends AppCompatActivity {
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
 
                     if (numLeft > numRight) {
-                        if (count < 11) {
+                        if (count < 10) {
                             count = count + 1;
                             if (imageIndex < images2.length - 1) {
                                 imageIndex++;
                                 img_cat.setImageResource(images2[imageIndex]);
                             }
                         }
-                        for (int i = 0; i < 11; i++) {
+                        for (int i = 0; i < 10; i++) {
                             TextView tv = findViewById(progress[i]);
                             tv.setBackgroundResource(R.drawable.style_points);
                         }
@@ -172,7 +172,7 @@ public class Level2 extends AppCompatActivity {
                                 count = count - 0;
                             }
                         }
-                        for (int i = 0; i < 10; i++) {
+                        for (int i = 0; i < 9; i++) {
                             TextView tv = findViewById(progress[i]);
                             tv.setBackgroundResource(R.drawable.style_points);
                         }
@@ -182,16 +182,16 @@ public class Level2 extends AppCompatActivity {
                             tv.setBackgroundResource(R.drawable.style_points_correct);
                         }
                     }
-                    if (count == 11) {
+                    if (count == 10) {
                         dialogEnd.show();
                     } else {
-                        numLeft = random.nextInt(8);
+                        numLeft = random.nextInt(7);
                         img_left.setImageResource(array.images3[numLeft]);
                         img_left.startAnimation(a);
-                        numRight = random.nextInt(8);
+                        numRight = random.nextInt(7);
 
                         while (numLeft == numRight) {
-                            numRight = random.nextInt(8);
+                            numRight = random.nextInt(7);
                         }
 
                         img_right.setImageResource(array.images3[numRight]);
@@ -220,14 +220,14 @@ public class Level2 extends AppCompatActivity {
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
 
                     if (numLeft < numRight) {
-                        if (count < 11) {
+                        if (count < 10) {
                             count = count + 1;
                             if (imageIndex < images2.length - 1) {
                                 imageIndex++;
                                 img_cat.setImageResource(images2[imageIndex]);
                             }
                         }
-                        for (int i = 0; i < 11; i++) {
+                        for (int i = 0; i < 10; i++) {
                             TextView tv = findViewById(progress[i]);
                             tv.setBackgroundResource(R.drawable.style_points);
                         }
@@ -246,7 +246,7 @@ public class Level2 extends AppCompatActivity {
                                 count = count - 0;
                             }
                         }
-                        for (int i = 0; i < 10; i++) {
+                        for (int i = 0; i < 9; i++) {
                             TextView tv = findViewById(progress[i]);
                             tv.setBackgroundResource(R.drawable.style_points);
                         }
@@ -256,16 +256,16 @@ public class Level2 extends AppCompatActivity {
                             tv.setBackgroundResource(R.drawable.style_points_correct);
                         }
                     }
-                    if (count == 11) {
+                    if (count == 10) {
                         dialogEnd.show();
                     } else {
-                        numLeft = random.nextInt(8);
+                        numLeft = random.nextInt(7);
                         img_left.setImageResource(array.images3[numLeft]);
                         img_left.startAnimation(a);
-                        numRight = random.nextInt(8);
+                        numRight = random.nextInt(7);
 
                         while (numLeft == numRight) {
-                            numRight = random.nextInt(8);
+                            numRight = random.nextInt(7);
                         }
 
                         img_right.setImageResource(array.images3[numRight]);

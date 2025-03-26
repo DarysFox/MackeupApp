@@ -1,0 +1,50 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/btnRed"
+            android:layout_width="88dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="8dp"
+            android:background="@android:color/holo_red_light"
+            android:text="Červená" />
+
+        <Button
+            android:id="@+id/btnBlue"
+            android:layout_width="88dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="8dp"
+            android:background="@android:color/holo_blue_light"
+            android:text="Modrá" />
+
+        <Button
+            android:id="@+id/btnGreen"
+            android:layout_width="88dp"
+            android:layout_height="62dp"
+            android:layout_marginRight="8dp"
+            android:text="Zelená"
+            android:background="@android:color/holo_green_light"/>
+
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="88dp"
+            android:layout_height="62dp"
+            android:text="Vymazat"
+            android:background="@android:color/darker_gray"/>
+    </LinearLayout>
+
+    <space.khsv.quizapp.PaintView
+        android:id="@+id/paintView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"/>
+</LinearLayout>
