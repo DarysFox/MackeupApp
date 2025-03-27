@@ -19,7 +19,7 @@ public class PaintView extends View {
     private List<Path> paths = new ArrayList<>();
     private List<Paint> paints = new ArrayList<>();
     private Path path;
-    private Bitmap backgroundImage; // Obrázek jako pozadí
+    private Bitmap backgroundImage;
 
     public PaintView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -34,25 +34,22 @@ public class PaintView extends View {
         paint.setAntiAlias(true);
         path = new Path();
 
-        // Načtení obrázku z res/drawable
-        backgroundImage = BitmapFactory.decodeResource(getResources(), R.drawable.yoda);
+
+        backgroundImage = BitmapFactory.decodeResource(getResources(), R.drawable.r1);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        // Vykreslení obrázku jako pozadí
         if (backgroundImage != null) {
             canvas.drawBitmap(backgroundImage, 0, 0, null);
         }
 
-        // Vykreslení všech předchozích cest
         for (int i = 0; i < paths.size(); i++) {
             canvas.drawPath(paths.get(i), paints.get(i));
         }
 
-        // Vykreslení aktuální cesty
         canvas.drawPath(path, paint);
     }
 

@@ -12,34 +12,42 @@
 
         <Button
             android:id="@+id/btnRed"
-            android:layout_width="88dp"
+            android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginRight="8dp"
             android:background="@android:color/holo_red_light"
-            android:text="Červená" />
+            android:text="💎" />
 
         <Button
             android:id="@+id/btnBlue"
-            android:layout_width="88dp"
+            android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginRight="8dp"
             android:background="@android:color/holo_blue_light"
-            android:text="Modrá" />
+            android:text="⭐" />
+
+        <Button
+            android:id="@+id/btnPink"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="8dp"
+            android:background="@android:color/holo_green_light"
+            android:text="🩷" />
 
         <Button
             android:id="@+id/btnGreen"
-            android:layout_width="88dp"
-            android:layout_height="62dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginRight="8dp"
-            android:text="Zelená"
-            android:background="@android:color/holo_green_light"/>
+            android:background="@android:color/holo_green_light"
+            android:text="🍀" />
 
         <Button
             android:id="@+id/btnClear"
-            android:layout_width="88dp"
-            android:layout_height="62dp"
-            android:text="Vymazat"
-            android:background="@android:color/darker_gray"/>
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@android:color/darker_gray"
+            android:text="🗑️" />
     </LinearLayout>
 
     <space.khsv.quizapp.PaintView

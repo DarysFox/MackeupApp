@@ -2,6 +2,7 @@ package space.khsv.quizapp;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -15,6 +16,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class GameLevels extends AppCompatActivity {
+
+    MediaPlayer mediaPlayer;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -66,7 +69,18 @@ public class GameLevels extends AppCompatActivity {
             }
         });
 
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.piki);
+        mediaPlayer.start();
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mediaPlayer.stop();
+        mediaPlayer.release();
     }
 
 }
+
 

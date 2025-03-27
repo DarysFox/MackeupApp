@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -24,6 +25,8 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.Random;
 
 public class Level1 extends AppCompatActivity {
+
+    MediaPlayer mediaPlayer;
 
     Dialog dialog;
     Dialog dialogEnd;
@@ -287,8 +290,19 @@ public class Level1 extends AppCompatActivity {
                 return true;
             }
         });
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.piki);
+        mediaPlayer.start();
+
     }
-}
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mediaPlayer.stop();
+        mediaPlayer.release();
+    }
+    }
+
 
 //        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
 //            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
