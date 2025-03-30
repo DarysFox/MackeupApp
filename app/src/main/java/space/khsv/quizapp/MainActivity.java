@@ -12,11 +12,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-
-
-    MediaPlayer mediaPlayer;
-
-
+    private boolean isPlaying = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,17 +28,28 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.piki);
-        mediaPlayer.start();
 
+        findViewById(R.id.btnToggleMusic).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isPlaying) {
+                    stopMusic();
+                } else {
+                    startMusic();
+                }
+                isPlaying = !isPlaying;
+            }
+        });
     }
+        private void startMusic() {
+            startService(new Intent(this, MusicService.class));
+        }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mediaPlayer.stop();
-        mediaPlayer.release();
-    }
+        private void stopMusic() {
+            stopService(new Intent(this, MusicService.class));
+        }
+
+
 
 }
 

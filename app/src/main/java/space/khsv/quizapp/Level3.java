@@ -11,8 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Level3 extends AppCompatActivity {
     private PaintView paintView;
 
-    MediaPlayer mediaPlayer;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,16 +31,9 @@ public class Level3 extends AppCompatActivity {
 
         btnClear.setOnClickListener(v -> paintView.clearCanvas());
 
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.piki);
-        mediaPlayer.start();
+
 
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mediaPlayer.stop();
-        mediaPlayer.release();
 
-    }
 }

@@ -22,7 +22,6 @@ import java.util.Random;
 
 public class Level2 extends AppCompatActivity {
 
-    MediaPlayer mediaPlayer;
     Dialog dialog;
 
     Dialog dialogEnd;
@@ -278,18 +277,10 @@ public class Level2 extends AppCompatActivity {
                 return true;
             }
         });
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.piki);
-        mediaPlayer.start();
+
 
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mediaPlayer.stop();
-        mediaPlayer.release();
-
-    }
 }
 
 //        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

@@ -17,7 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class GameLevels extends AppCompatActivity {
 
-    MediaPlayer mediaPlayer;
+    private boolean isPlaying = false;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -69,17 +69,26 @@ public class GameLevels extends AppCompatActivity {
             }
         });
 
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.piki);
-        mediaPlayer.start();
-
+        findViewById(R.id.btnToggleMusic).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isPlaying) {
+                    stopMusic();
+                } else {
+                    startMusic();
+                }
+                isPlaying = !isPlaying;
+            }
+        });
+    }
+    private void startMusic() {
+        startService(new Intent(this, MusicService.class));
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mediaPlayer.stop();
-        mediaPlayer.release();
+    private void stopMusic() {
+        stopService(new Intent(this, MusicService.class));
     }
+
 
 }
 

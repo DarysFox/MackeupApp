@@ -38,6 +38,9 @@
             android:name=".Level3"
             tools:ignore="true" />
 
+        <service android:name=".MusicService" />
+
+
     </application>
 
 </manifest>
