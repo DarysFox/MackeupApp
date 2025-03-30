@@ -1,18 +1,23 @@
 package space.khsv.quizapp;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.recyclerview.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.GridLayout;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Level3 extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private CardAdapter adapter;
+    private GridLayout gridLayout;
     private List<Card> cards;
     private Integer firstSelectedIndex = null;
     private Handler handler = new Handler();
@@ -23,8 +28,17 @@ public class Level3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pexes);
 
-        recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
+
+        Button button_back = findViewById(R.id.button_back);
+        button_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Level3.this, GameLevels.class);
+                startActivity(intent);
+            }
+        });
+
+        gridLayout = findViewById(R.id.gridLayout);
 
         setupGame();
     }
@@ -42,8 +56,20 @@ public class Level3 extends AppCompatActivity {
         }
 
         Collections.shuffle(cards);
-        adapter = new CardAdapter(cards, this::onCardClicked);
-        recyclerView.setAdapter(adapter);
+
+        // Dynamicky přidání karet do GridLayout
+        for (int i = 0; i < cards.size(); i++) {
+            View cardView = LayoutInflater.from(this).inflate(R.layout.card_item, gridLayout, false);
+            ImageButton cardButton = cardView.findViewById(R.id.cardButton);
+
+            // Nastavení obrázku a události pro kliknutí na kartu
+            final int position = i;
+            cardButton.setImageResource(R.drawable.kota); // Představuje zakrytou kartu
+            cardButton.setOnClickListener(v -> onCardClicked(position));
+
+            // Přidání karty do GridLayout
+            gridLayout.addView(cardView);
+        }
     }
 
     private void onCardClicked(int position) {
@@ -52,7 +78,7 @@ public class Level3 extends AppCompatActivity {
         if (clickedCard.isFaceUp() || clickedCard.isMatched()) return;
 
         clickedCard.setFaceUp(true);
-        adapter.notifyItemChanged(position);
+        updateGrid();
 
         if (firstSelectedIndex == null) {
             firstSelectedIndex = position;
@@ -67,11 +93,21 @@ public class Level3 extends AppCompatActivity {
                 handler.postDelayed(() -> {
                     previousCard.setFaceUp(false);
                     clickedCard.setFaceUp(false);
-                    adapter.notifyItemChanged(previousIndex);
-                    adapter.notifyItemChanged(position);
+                    updateGrid();
                 }, 1000);
             }
             firstSelectedIndex = null;
         }
     }
+
+    // Funkce pro aktualizaci zobrazení karet
+    private void updateGrid() {
+        for (int i = 0; i < cards.size(); i++) {
+            Card card = cards.get(i);
+            ImageButton cardButton = (ImageButton) gridLayout.getChildAt(i).findViewById(R.id.cardButton);
+            cardButton.setImageResource(card.isFaceUp() ? card.getImageResId() : R.drawable.kota);
+            cardButton.setEnabled(!card.isMatched());
+        }
+    }
+
 }
