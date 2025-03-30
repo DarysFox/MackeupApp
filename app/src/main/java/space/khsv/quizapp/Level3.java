@@ -2,13 +2,19 @@ package space.khsv.quizapp;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.GridLayout;
+import android.widget.Toast;
+import android.app.Dialog;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,6 +34,30 @@ public class Level3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pexes);
 
+        Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.prewiew_dialog3);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.setCancelable(false);
+        dialog.show();
+
+        Button btncon = dialog.findViewById(R.id.btncontinue);
+        btncon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        TextView btnclos = dialog.findViewById(R.id.btnclose);
+        btnclos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Level3.this, GameLevels.class);
+                startActivity(intent);
+            }
+        });
+
 
         Button button_back = findViewById(R.id.button_back);
         button_back.setOnClickListener(new View.OnClickListener() {
@@ -45,7 +75,7 @@ public class Level3 extends AppCompatActivity {
 
     private void setupGame() {
         int[] images = {
-                R.drawable.c9, R.drawable.s1, R.drawable.s2, R.drawable.s3,
+                R.drawable.c11, R.drawable.s1, R.drawable.s2, R.drawable.s3,
                 R.drawable.s4, R.drawable.s5, R.drawable.s6, R.drawable.s7
         };
 
@@ -98,6 +128,53 @@ public class Level3 extends AppCompatActivity {
             }
             firstSelectedIndex = null;
         }
+
+        // Zkontrolujeme, zda je hra dokončena
+        if (isGameFinished()) {
+            showGameFinishedDialog();
+        }
+    }
+
+    // Funkce pro zjištění, zda je hra dokončena
+    private boolean isGameFinished() {
+        for (Card card : cards) {
+            if (!card.isMatched()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+
+    // Funkce pro zobrazení vlastního dialogového okna po skončení hry
+    private void showGameFinishedDialog() {
+        // Vytvoření Dialogu s vlastním XML layoutem
+        Dialog dialogEnd = new Dialog(this);
+        dialogEnd.setContentView(R.layout.dialog_end3);
+        dialogEnd.setCancelable(false); // Zabránit zavření dialogu kliknutím mimo něj
+
+        Button btnconEnd = dialogEnd.findViewById(R.id.btncontinue);
+        btnconEnd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Level3.this, GameLevels.class);
+                startActivity(intent);
+                dialogEnd.dismiss();
+            }
+        });
+
+        TextView btnclosEnd = dialogEnd.findViewById(R.id.btnclose);
+        btnclosEnd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Level3.this, GameLevels.class);
+                startActivity(intent);
+                dialogEnd.dismiss();
+            }
+        });
+
+        dialogEnd.show(); // Zobrazíme dialog
     }
 
     // Funkce pro aktualizaci zobrazení karet
@@ -109,5 +186,4 @@ public class Level3 extends AppCompatActivity {
             cardButton.setEnabled(!card.isMatched());
         }
     }
-
 }
