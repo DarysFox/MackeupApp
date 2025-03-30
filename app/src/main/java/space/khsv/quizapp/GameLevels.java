@@ -46,7 +46,7 @@ public class GameLevels extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GameLevels.this, Level1.class);
+                Intent intent = new Intent(GameLevels.this, Level2.class);
                 startActivity(intent);
             }
         });
@@ -55,7 +55,7 @@ public class GameLevels extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GameLevels.this, Level2.class);
+                Intent intent = new Intent(GameLevels.this, Level1.class);
                 startActivity(intent);
             }
         });

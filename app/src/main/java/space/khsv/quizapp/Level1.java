@@ -101,7 +101,7 @@ public class Level1 extends AppCompatActivity {
         btnconEnd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Level1.this, Level2.class);
+                Intent intent = new Intent(Level1.this, Level3.class);
                 startActivity(intent);
                 dialogEnd.dismiss();
             }

@@ -92,7 +92,7 @@ public class Level2 extends AppCompatActivity {
         btnconEnd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Level2.this, GameLevels.class);
+                Intent intent = new Intent(Level2.this, Level1.class);
                 startActivity(intent);
                 dialogEnd.dismiss();
             }
