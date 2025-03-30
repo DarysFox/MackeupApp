@@ -161,21 +161,6 @@
                     android:layout_weight="1"
                     android:background="@drawable/style_points" />
 
-                <TextView
-                    android:id="@+id/point14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/style_points" />
-
-                <TextView
-                    android:id="@+id/point15"
-                    android:layout_width="wrap_content"
-                    android:layout_height="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/style_points" />
-
-
             </LinearLayout>
 
             <LinearLayout
@@ -192,7 +177,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="20dp"
                     android:layout_weight="1"
-                    android:src="@drawable/make_0" />
+                    android:src="@drawable/m2" />
             </LinearLayout>
 
             <LinearLayout
